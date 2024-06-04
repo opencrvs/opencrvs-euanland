@@ -20,7 +20,7 @@ all:
     # then this should always be set when configuring a production server if there is no other firewall in front of the server.
     # BE CAREFUL! This will block all SSH traffic except from the IP addresses listed here.
     only_allow_access_from_addresses:
-      # @todo place the IP address of your jump server or other explicitly allowed traffic sources here
+      # If you are using a jump server to access this environment, place the IP address of the jump server or other explicitly allowed traffic sources here
       #- 55.55.55.55 # example jump server IP address
       []
     enable_backups: false
@@ -31,19 +31,19 @@ all:
     users:
       # @todo this is where you define which development team members have access to the server.
       # If you need to remove access from someone, do not remove them from this list, but instead set their state: absent
-      - name: my-user
+      - name: euan
         ssh_keys:
-          - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABg...Z/rhU= user@example.com
+          - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDECqHO65UpyrrO8uueD06RxGaVVq22f152Rf8qVQQAAIGAMu6gCs7ztlZ8a3yQgSEIjM/Jl1/RqIVs6CziTEef74nLFTZ5Ufz3CLRVgdebBeSBEmhTfTUV0HLkSyNzwKFpuzJxucGd72ulPvEp6eHvyJAPJz37YcU8cjaL1v05T6s2ee99li35GlDDtCzfjVV4ZPAg5JdfWuTj41RAVC0LQhk2/NB4qEu37UxGGjhRFSjBEsS5LxI9QfvgrsHpl/VOn+soH7ZkK7kS6qRgNP/uYsXRWXhHaamcl5OX68gJWTbrW6c7PCqlbCWGnsHJswCmqPIthwXXMfC7ULDNLSKG6mslAt5Dyc8/MCr3vTW7pDyr2d0FvvY86SMQUggxv3qF7TZewqfX1bhK0fMLarIxVMQ1RFo//wN9QGA+2we8rxd2Y1Kr1DBuJyuwXPfv+Exo8yNYQ+x/AYH5k6UVcSYuaB8eYmplG2KQCxt8RBFtoChrwOKNRWLqXdKyfpdp5XmnnWxPvR95gf3h3yLocVYkF0i0uvKKJ0vt8J0Ezfkdfow0B1kUg5bPXKJROX7PwbaCPdYcxyDaO6wwOigRnSmoFvkH1pLb4j1RQAXcX531CHgfN6Izi/h0mpMS4bnyIUcv2GQr+h4z4TxcCtj7qpH2y6yw7XG12jVh7TfeesXG2Q== euanmillar77@gmail.com
         state: present
         sudoer: true
 
 docker-manager-first:
   hosts:
-    staging: # @todo set this to be the hostname of your target server
-      ansible_host: '11.11.11.11' # @todo set this to be the hostname of your target server
+    euanland-staging: # @todo set this to be the hostname of your target server
+      ansible_host: '167.71.65.144' # @todo set this to be the hostname of your target server
       data_label: data1
-      # @todo as production servers are not directly accessible from the internet, you need to use a jump server to access them.
-      ansible_ssh_common_args: '-J jump@55.55.55.55 -o StrictHostKeyChecking=no'
+      # If you are using a jump server to access this environment, enter other SSH args here.
+      # ansible_ssh_common_args: '-J jump@55.55.55.55 -o StrictHostKeyChecking=no'
 
 # This staging servers is configured to only use one server
 docker-workers: {}
@@ -52,13 +52,9 @@ docker-workers: {}
 # @todo if you do not intend to set up automatic sync from the backup server, you can remove this section.
 backups:
   hosts:
-    backup: # @todo set this to be the hostname of your backup server
-      ansible_host: '66.66.66.66' # set this to be the IP address of your backup server
+    euanland-backup: # @todo set this to be the hostname of your backup server
+      ansible_host: '167.99.37.51' # set this to be the IP address of your backup server
       # Written by provision pipeline. Assumes "backup" environment
       # exists in Github environments
       ansible_ssh_private_key_file: /tmp/backup_ssh_private_key
 
-jump:
-  hosts:
-    backup: # @todo set this to be the hostname of your backup server
-      ansible_host: '55.55.55.55'
