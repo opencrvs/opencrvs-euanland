@@ -23,8 +23,9 @@ all:
       # If you are using a jump server to access this environment, place the IP address of the jump server or other explicitly allowed traffic sources here
       #- 55.55.55.55 # example jump server IP address
       []
+    # "enable_backups" is set to false on staging.  Staging will not backup it's own data.
     enable_backups: false
-    # Turn this on if you want to restore daily production backups to your staging server.
+    # "periodic_restore_from_backup" restores daily production backups to your staging server.
     # For this you need to first setup a backup environment
     periodic_restore_from_backup: true
     backup_server_remote_source_directory: /home/backup/backups
