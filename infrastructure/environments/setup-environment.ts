@@ -985,13 +985,7 @@ const SPECIAL_NON_APPLICATION_ENVIRONMENTS = ['jump', 'backup']
     if (notificationTransport.includes('sms')) {
       await promptAndStoreAnswer(environment, smsQuestions, existingValues)
     }
-  } else {
-    log('\n', kleur.bold().underline('Server setup'))
-    const { domain } = await promptAndStoreAnswer(
-      environment,
-      infrastructureQuestions,
-      existingValues
-    )
+  }
 
   const allAnswers = ALL_ANSWERS.reduce((acc, answer) => {
     return { ...acc, ...answer }

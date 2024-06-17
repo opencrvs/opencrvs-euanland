@@ -99,13 +99,7 @@ mkdir -p $BACKUP_RAW_FILES_DIR/extract
 tar -xvf $BACKUP_RAW_FILES_DIR/${LABEL}.tar.gz -C $BACKUP_RAW_FILES_DIR/extract
 
 # Delete previous days restore(s) and move the newly downloaded one in place
-for BACKUP_DIR in /data/backups/*; do
-  if [ -d "$BACKUP_DIR" ]; then
-    rm -rf $BACKUP_DIR/*
-  fi
-done
-
-
+rm -rf /data/backups/*
 mv $BACKUP_RAW_FILES_DIR/extract/elasticsearch /data/backups/elasticsearch
 
 mv $BACKUP_RAW_FILES_DIR/extract/influxdb /data/backups/influxdb/${LABEL}
