@@ -583,9 +583,6 @@ services:
       - APN_SERVICE_URL=http://apm-server:8200
       - COUNTRY_CONFIG_URL=https://countryconfig.{{hostname}}
       - LOGIN_URL=https://login.{{hostname}}
-      # This needs to be the internal swarm url
-      # as containers cannot connect to the web
-      - GATEWAY_URL=http://gateway:7070
       - CLIENT_APP_URL=https://register.{{hostname}}
       - NOTIFICATION_TRANSPORT=${NOTIFICATION_TRANSPORT}
       - ALERT_EMAIL=${ALERT_EMAIL:-}
@@ -972,6 +969,8 @@ services:
       - OPENCRVS_METABASE_MAP_URL=http://countryconfig:3040/content/farajaland-map.geojson
       - OPENCRVS_METABASE_MAP_REGION_KEY=State
       - OPENCRVS_METABASE_MAP_REGION_NAME=State
+      - OPENCRVS_METABASE_ADMIN_EMAIL=${OPENCRVS_METABASE_ADMIN_EMAIL}
+      - OPENCRVS_METABASE_ADMIN_PASSWORD=${OPENCRVS_METABASE_ADMIN_PASSWORD}
     deploy:
       labels:
         - 'traefik.enable=true'

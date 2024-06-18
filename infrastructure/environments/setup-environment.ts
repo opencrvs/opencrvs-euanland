@@ -720,6 +720,28 @@ const derivedVariables = [
   }
 ] as const
 
+const metabaseAdminQuestions = [
+  {
+    valueType: 'SECRET' as const,
+    name: 'OPENCRVS_METABASE_ADMIN_EMAIL',
+    type: 'text' as const,
+    message:
+      'Email for Metabase super admin. Used as a username when logging in to the dashboard',
+    valueLabel: 'OPENCRVS_METABASE_ADMIN_EMAIL',
+    scope: 'ENVIRONMENT' as const,
+    initial: 'user@opencrvs.org'
+  },
+  {
+    valueType: 'SECRET' as const,
+    name: 'OPENCRVS_METABASE_ADMIN_PASSWORD',
+    type: 'text' as const,
+    message: 'Password for Metabase super admin.',
+    valueLabel: 'OPENCRVS_METABASE_ADMIN_PASSWORD',
+    scope: 'ENVIRONMENT' as const,
+    initial: generateLongPassword()
+  }
+]
+
 ALL_QUESTIONS.push(
   ...githubTokenQuestion,
   ...dockerhubQuestions,
@@ -732,7 +754,8 @@ ALL_QUESTIONS.push(
   ...emailQuestions,
   ...vpnHostQuestions,
   ...sentryQuestions,
-  ...derivedVariables
+  ...derivedVariables,
+  ...metabaseAdminQuestions
 )
 
 /*

@@ -89,7 +89,7 @@ function trapint {
 }
 
 print_usage_and_exit () {
-  echo 'Usage: ./deploy.sh --host --environment --ssh_host --ssh_user --version --country_config_version --replicas'
+  echo 'Usage: ./deploy.sh --host --environment --ssh_host --ssh_port --ssh_user --version --country_config_version --replicas'
   echo "  --environment can be 'production', 'development', 'qa' or similar"
   echo '  --host    is the server to deploy to'
   echo "  --version can be any OpenCRVS Core docker image tag or 'latest'"
@@ -116,6 +116,11 @@ validate_options() {
 
   if [ -z "$SSH_HOST" ] ; then
     echo 'Error: Argument --ssh_host is required.'
+    print_usage_and_exit
+  fi
+
+  if [ -z "$SSH_PORT" ] ; then
+    echo 'Error: Argument --ssh_port is required.'
     print_usage_and_exit
   fi
 
