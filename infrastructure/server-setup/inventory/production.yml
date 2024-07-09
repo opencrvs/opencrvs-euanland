@@ -42,13 +42,7 @@ docker-manager-first:
       ansible_host: '167.71.12.167' # @todo set this to be the hostname of your target server
       data_label: data1
 
-# @todo We recommend you add 2-4 workers for a scaled production deployment
-# This should depend on the size of your country and the number of end users.
-docker-workers:
-  hosts:
-    euanland-prod-02: # @todo set this to be the hostname of your target server
-      ansible_host: '167.71.69.182'
-      data_label: data2
+docker-workers: {}
 
 backups:
   hosts:
