@@ -391,7 +391,7 @@ export async function createServer() {
 
   server.route({
     method: 'GET',
-    path: '/content/farajaland-map.geojson',
+    path: '/content/map.geojson',
     handler: mapGeojsonHandler,
     options: {
       auth: false,
@@ -494,7 +494,6 @@ export async function createServer() {
     path: '/certificates',
     handler: certificateHandler,
     options: {
-      auth: false,
       tags: ['api', 'certificates'],
       description: 'Returns certificate metadata'
     }
