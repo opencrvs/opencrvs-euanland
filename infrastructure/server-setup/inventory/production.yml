@@ -41,9 +41,8 @@ docker-manager-first:
     euanland-prod-01: # @todo set this to be the hostname of your target server
       ansible_host: '167.71.12.167' # @todo set this to be the hostname of your target server
       data_label: data1
+      # @todo as production servers are not directly accessible from the internet, you need to use a jump server to access them.
 
-# @todo We recommend you add 2-4 workers for a scaled production deployment
-# This should depend on the size of your country and the number of end users.
 docker-workers: {}
 
 backups:
