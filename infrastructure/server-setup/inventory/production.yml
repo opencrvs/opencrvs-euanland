@@ -35,6 +35,11 @@ all:
           - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDECqHO65UpyrrO8uueD06RxGaVVq22f152Rf8qVQQAAIGAMu6gCs7ztlZ8a3yQgSEIjM/Jl1/RqIVs6CziTEef74nLFTZ5Ufz3CLRVgdebBeSBEmhTfTUV0HLkSyNzwKFpuzJxucGd72ulPvEp6eHvyJAPJz37YcU8cjaL1v05T6s2ee99li35GlDDtCzfjVV4ZPAg5JdfWuTj41RAVC0LQhk2/NB4qEu37UxGGjhRFSjBEsS5LxI9QfvgrsHpl/VOn+soH7ZkK7kS6qRgNP/uYsXRWXhHaamcl5OX68gJWTbrW6c7PCqlbCWGnsHJswCmqPIthwXXMfC7ULDNLSKG6mslAt5Dyc8/MCr3vTW7pDyr2d0FvvY86SMQUggxv3qF7TZewqfX1bhK0fMLarIxVMQ1RFo//wN9QGA+2we8rxd2Y1Kr1DBuJyuwXPfv+Exo8yNYQ+x/AYH5k6UVcSYuaB8eYmplG2KQCxt8RBFtoChrwOKNRWLqXdKyfpdp5XmnnWxPvR95gf3h3yLocVYkF0i0uvKKJ0vt8J0Ezfkdfow0B1kUg5bPXKJROX7PwbaCPdYcxyDaO6wwOigRnSmoFvkH1pLb4j1RQAXcX531CHgfN6Izi/h0mpMS4bnyIUcv2GQr+h4z4TxcCtj7qpH2y6yw7XG12jVh7TfeesXG2Q== euanmillar77@gmail.com
         state: present
         sudoer: true
+      - name: aubrey
+        ssh_keys:
+          - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDArCs4g0y5NQz/p1b5XMiGAA/uhoLsVqBNJqzLGCXxlWx0uQ5H+GX544Y4LMtS/49QtdWBxXdaWa6/8IIvFlMRWVkXd3vcgpZi6UGE/6OuUHXGXmaKil5TzLaxh2DB9FReY1zOUSmp8LWgQ3jxY0Kuu0HNev6iPLWGMYG6P18kXRIzfi7F5gjBkF5eIN6ru6CKsSObiDVEqSV8JMN69t0lFdho8kBEbAW3qp8k3fsdArvtRgoSiQR7Xoh7bc4N11KiG7hBO07+ECK9nQakp94uxNE/8icPo7kmWCXixNcRbG3W/ZWNa6DulNJbAxzYkdX3PUYzyU7UYk3pJgqiroZNu1GI3G6jsMkEWnm5Bk/AIVBzsUN01/BT0TuHl/OSnhRQBu0wzTVDRgMaHAvH3pLIdCJU+wSE8MYUuL8/BRE9IDpACvQBHZ/O/La3pD6KoOf+t3bki+MViSx31TyQ1GTxjxV3MV38IM3cC6r7YX0bpS41cC/MuIVxwlweYiywx78= aubrey@castle
+        state: present
+        sudoer: true
 
 docker-manager-first:
   hosts:
