@@ -43,8 +43,8 @@ all:
 
 docker-manager-first:
   hosts:
-    euanland-prod-01: # @todo set this to be the hostname of your target server
-      ansible_host: '167.71.12.167' # @todo set this to be the hostname of your target server
+    euanland-prod: # @todo set this to be the hostname of your target server
+      ansible_host: '209.38.35.42' # @todo set this to be the hostname of your target server
       data_label: data1
 
 docker-workers: {}
@@ -52,7 +52,7 @@ docker-workers: {}
 backups:
   hosts:
     backup: # @todo set this to be the hostname of your backup server
-      ansible_host: '167.99.37.51'
+      ansible_host: '104.248.83.144'
       # Written by provision pipeline. Assumes "backup" environment
       # exists in Github environments
       ansible_ssh_private_key_file: /tmp/backup_ssh_private_key
